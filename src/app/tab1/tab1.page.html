@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title">
+      Home
+    </ion-title>
+    <ion-title class="right" (click)="logout()">
+       Logout
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-slides #mySlider (ionSlidesDidLoad)="slidesDidLoad(mySlider)" autoplay="5000" loop="true" speed="3000" pager="true">
+        <ion-slide  *ngFor = "let banners of slideData">
+          <img src={{banners.image}}>
+        </ion-slide>
+      </ion-slides><br/>
+<ion-label class="title2">Movies</ion-label><br/>
+    <ion-grid>
+        <ion-row class="forecast_container">
+          <ion-col size="4" *ngFor="let m of movies">
+            <ion-card>
+              <img width="100" height="110" src={{m.image_url}} (click)="onselect(m)"> 
+            </ion-card>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
